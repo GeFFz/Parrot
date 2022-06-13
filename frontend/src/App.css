@@ -1,0 +1,9 @@
+div.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #757575;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
