@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 
-const DB_NAME = "parrot_dev";
-const DB_USER = "root";
-const DB_PASS = "@Dev1702";
+const DB_NAME = process.env.DB_NAME;
+const DB_USER = process.env.DB_USER;
+const DB_PASS = process.env.DB_PASSWORD;
 const DB_CONFIG = {
   dialect: "mysql",
   host: "localhost",
@@ -18,7 +18,7 @@ try {
   console.error("Error ao tentar uma conexão com banco dados");
 }
 
-async function hasConection() {
+async function hasConnection() {
   try {
     await db.authenticate();
     console.log("Banco dados conectado!");
@@ -28,7 +28,7 @@ async function hasConection() {
 }
 
 Object.assign(db, {
-  hasConection,
+  hasConnection,
 });
 
 module.exports = db;
