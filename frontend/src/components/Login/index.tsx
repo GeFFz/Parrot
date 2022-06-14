@@ -1,6 +1,5 @@
 import React from 'react';
 import "./styles.css"
-// import * as S from "./styled";
 import { Link } from 'react-router-dom';
 import background from "../../assets/images/background.png"
 import logo from "../../assets/images/logo.png"
@@ -8,31 +7,36 @@ import { Button, Form } from 'react-bootstrap';
 
 // import { Container } from './styles';
 
-const Login: React.FC = () => (
-    <div className="container-login">
-        <div className="login">
-            <img className='logo' src={logo} alt="logo" />
-            <form className='form-login'>
-                <h2>Login</h2>
-                <div>
-                    <input type="Email" placeholder="E-mail"></input>
-                </div>
-                <div>
-                    <input type="password" placeholder="Senha"></input>
-                </div>
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
-                <div>
-                    <a href='#'>cadastre-se</a>
-                </div>
-            </form>
+const FormLogin: React.FC = () => (
+    <main>
+        {/* <img src={background} alt="" width="100%" height="100%" /> */}
+
+        <div className="container-FormLogin">
+            <div className="login">
+                <img className='logo' src={logo} alt="logo" />
+                <form className='form-login'>
+                    <h2>Login</h2>
+                    <div>
+                        <input type="Email" placeholder="E-mail"></input>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Senha"></input>
+                    </div>
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+                    <div>
+                        <a href='#'>cadastre-se</a>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+    </main>
+
 
 )
 
-export default Login;
+export default FormLogin;
 
 
 

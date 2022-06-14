@@ -1,18 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-div.container-login{
-    width: 100vw;
-    height: 100vh;
+
+main{
+    width: 100%;
+    height: 100%;
     display: flex;
-    background-image: url("../../assets/background.png");
+    background-color: gray;
+    background-image: url("../../assets/images/background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+div.container-FormLogin{
+    width: 100%;
+    height: 100%;
+    display: flex;
     background-repeat: no-repeat;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
-  }
+}
 
 div.login {
+    z-index: 999;
     width: 350px;
     height: 400px;
     background-color: white;
