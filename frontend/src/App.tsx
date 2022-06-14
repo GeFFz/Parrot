@@ -3,19 +3,13 @@ import Footer from './components/Footer'
 import Login from './components/Login'
 import './App.css'
 
+import AppRoutes from './routes'
+
 function App() {
 
   return (
     <div className="container">
-      {/**Header */}
-      {/**Main */}
-      {/**Footer */}
-      {/* <Footer/> */}
-
-
-      <Login/>
-
-
+      <AppRoutes />
     </div>
   )
 }
