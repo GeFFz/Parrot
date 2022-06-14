@@ -73,6 +73,7 @@ header nav.menu ul li .menu-sair{
 header nav.menu ul li p{
     display: block;
     padding: 0 5px;
+    margin: 0;
     text-decoration: none;
     font-family: 'Questrial';
     color: #76BB4C;
