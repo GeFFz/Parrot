@@ -1,5 +1,7 @@
 const express = require("express");
 const routes = express.Router();
+const authLoginValidation = require('../validations/auth/login');
+const auth = require('../middlewares/auth');
 
 import { PostController } from '../domain/posts/controllers/post.controller';
 import { PostValidation } from '../domain/posts/validations';
@@ -15,13 +17,13 @@ routes.delete("/posts/:id", PostValidation.destroy, PostController.delete);
 
 
 
-routes.post("/users", UserController.create);
-routes.get("/users",  UserController.getAll);
-routes.get("/users/:id", UserValidation.getOne, UserController.getOne);
-routes.put("/users/:id", UserValidation.update, UserController.update);
-routes.delete("/users/:id", UserValidation.destroy, UserController.delete);
+routes.post("/users", auth.UserController.create);
+routes.get("/users",  auth.UserController.getAll);
+routes.get("/users/:id", auth.UserValidation.getOne, UserController.getOne);
+routes.put("/users/:id", auth.UserValidation.update, UserController.update);
+routes.delete("/users/:id", auth.UserValidation.destroy, UserController.delete);
 
 
-
+routes.post('/login', authLoginValidation, authController.login);
 
 module.exports = routes;
