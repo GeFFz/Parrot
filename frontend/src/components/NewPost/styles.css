@@ -1,0 +1,46 @@
+main.post-container{
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #C5C5C5;
+    padding: 3vh;
+    justify-content: space-between;
+    width: 700px;
+}
+
+main div.user-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3vh;
+}
+
+main div.post div{
+    display: flex;
+    flex-direction: column;
+    width: 542px;
+}
+
+main div.post div textarea {
+    box-sizing: border-box;
+    border: 1px solid #8BC34A;
+    border-radius: 10px;
+    position:relative;
+    height: 8vh;
+}
+main div.post div.button-publicar{
+    display: flex;
+    padding-top: 1.5vh;
+    align-items: flex-end;
+}
+
+
+main div.post div.button-publicar button{
+    color: #fff;
+    background: #6033AA;
+    border-radius: 30px;
+    border: none;
+    width: 164px;
+    height: 28px;
+    font-family: 'Questrial';
+    font-size: 16px;
+}

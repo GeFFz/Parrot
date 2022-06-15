@@ -1,7 +1,7 @@
 header{
     display: flex;
     align-items: center;
-    position: fixed;
+    position:absolute top;
     width: 100%;
     top: 0;
     left: 0;
@@ -55,7 +55,6 @@ header nav.menu ul li .menu-user{
     color: #76BB4C;
     font-size: 20px;
     line-height: 24.38px;
-    font-weight: bold;
     text-align: center;
 }
 
@@ -72,14 +71,12 @@ header nav.menu ul li .menu-sair{
 
 header nav.menu ul li p{
     display: block;
-    padding: 0 5px;
     margin: 0;
     text-decoration: none;
     font-family: 'Questrial';
     color: #76BB4C;
     font-size: 20px;
     line-height: 24.38px;
-    font-weight: bold;
     text-align: center;
 }
 

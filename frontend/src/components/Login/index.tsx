@@ -8,7 +8,7 @@ import { Button, Form } from 'react-bootstrap';
 // import { Container } from './styles';
 
 const FormLogin: React.FC = () => (
-    <main>
+    <main className="background-img">
         {/* <img src={background} alt="" width="100%" height="100%" /> */}
 
         <div className="container-FormLogin">
