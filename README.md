@@ -67,19 +67,19 @@
 <h1>CRITÉRIOS DE AVALIAÇÃO</h1> 
 
 <ul>
-   <li> - Responsividade da aplicação</li>
-   <li> - Validação dos dados de response da API (retorno)</li>
-   <li> - Validação dos dados de request da API (enviados para a API)</li>
-   <li> - Feedback de erro na API (uso de código http condizente com o tipo de erro)</li>
-   <li>  - Uso de testes automatizados</li>
-   <li> - Uso de migrations</li>
-   <li>  - Migrations devem refletir as configurações propostas no documento DER</li>
-   <li> - Estrutura do código.</li>
-   <li> - Validação de formulário.</li>
-   <li> - Validação de erros na requisição.</li>
-   <li> - Feedback de erros para os usuários</li>
-   <li> - Divisão de tarefas entre os membros da equipe seguindo os princípios da Metodologia Ágil Scrum</li>
-   <li> - Utilizar boas práticas de versionamento de código com Git</li>
+   <li>  Responsividade da aplicação</li>
+   <li>  Validação dos dados de response da API (retorno)</li>
+   <li>  Validação dos dados de request da API (enviados para a API)</li>
+   <li>  Feedback de erro na API (uso de código http condizente com o tipo de erro)</li>
+   <li>  Uso de testes automatizados</li>
+   <li>  Uso de migrations</li>
+   <li>  Migrations devem refletir as configurações propostas no documento DER</li>
+   <li>  Estrutura do código.</li>
+   <li>  Validação de formulário.</li>
+   <li>  Validação de erros na requisição.</li>
+   <li>  Feedback de erros para os usuários</li>
+   <li>  Divisão de tarefas entre os membros da equipe seguindo os princípios da Metodologia Ágil Scrum</li>
+   <li>  Utilizar boas práticas de versionamento de código com Git</li>
 </ul>
 
  <h1>Entrega:</h1>
