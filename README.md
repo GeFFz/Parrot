@@ -40,7 +40,8 @@
         <li> Implementar Princípios SOLID na arquitetura</li>
         <li> Testes automatizados (unitários e integração), cobrir ao menos:</li>
         <li> controllers</li>
-        <li> endpoint (casos de erro também)</ol>
+        <li> endpoint (casos de erro também)</li>
+        </ol>
 
 <p>Garanta que a API está de acordo com os dados esperados na aplicação front-end.</p> 
 
@@ -56,7 +57,7 @@
     <li> Edição do Usuário</li>
     </ol>
 
-    <h1>FUNCIONALIDADE OPCIONAL</h1>
+    <h1> FUNCIONALIDADE OPCIONAL </h1>
 
 <ol>
     <li> Like</li>
