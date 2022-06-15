@@ -29,6 +29,9 @@ export const  Users = db.define(
     updatedAt: {
       allowNull: false,
       type: DataTypes.DATE
+    },
+    permission: {
+      type: DataTypes.INTEGER
     }
   },
   {

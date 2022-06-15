@@ -1,8 +1,8 @@
-const expressJWT = require('express-jwt');
-var secret = require('../config/secret');
+require('dotenv').config()
+const { expressjwt } = require("express-jwt");
 
-module.exports = expressJWT.expressjwt({
-    secret: secret.key,
-    algorithms: ["HS256"]
+module.exports = expressjwt({
+    secret: process.env.SECRET_KEY,
+    algorithms: ['HS256']
 });
 

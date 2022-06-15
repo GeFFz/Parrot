@@ -1,17 +1,44 @@
 import { Users } from "../models/users";
+import { Posts } from "../../posts/models/posts"
 import bcrypt from "bcryptjs";
-
+const jwt = require("jsonwebtoken");
+require('dotenv').config()
 
 export class UserService {
 
+    async loginUser(data: any) {
+        const { email, password } = data;
+
+        const user = await Users.findOne({
+            where:{
+                email,
+            },
+        });
+        
+        if(!user || !bcrypt.compareSync(password, user.password)){
+            return
+        }
+
+        const token = jwt.sign({
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            apartment: user.apartment,
+            permission: user.permission,
+        },
+        process.env.SECRET_KEY
+        );
+        return token;
+    }
+
     async registerUser(data: any) {
-        const { senha, cep } = data;
-        const newSenha = bcrypt.hashSync(senha, 10);
+        const { password } = data;
+        const newPassword = bcrypt.hashSync(password, 10);
 
         const registeredUser = await Users.create({
             ...data,
-            senha: newSenha
-            
+            password: newPassword,
+            permission: 1
         });
         return registeredUser;
     }
@@ -19,18 +46,18 @@ export class UserService {
     
     async alterUser(data: any, params: any) {
         const { id } = params;
-        const { senha} = data;
+        const { password } = data;
         const payloadUpdate = {};
 
         Object.assign(payloadUpdate, data);
 
-        if (senha) {
-            const newSenha = bcrypt.hashSync(senha, 10);
-            Object.assign(payloadUpdate, { senha: newSenha });
+        if (password) {
+            const newPassword = bcrypt.hashSync(password, 10);
+            Object.assign(payloadUpdate, { password: newPassword });
         }
 
         await Users.update({
-            ...payloadUpdate
+            ...payloadUpdate,
         }, {
             where: { id },
         });
@@ -41,6 +68,20 @@ export class UserService {
 
     async excludeUser(params: any) {
         const { id } = params;
+
+        const userPosts = await Posts.count({
+            where:{
+                user_id: id
+            }
+        });
+
+        if(userPosts >=1){
+            await Posts.destroy({
+                where: {
+                    user_id: id,
+                },
+            });
+        }
        
         await Users.destroy({
             where: {

@@ -1,9 +1,22 @@
-import { Users } from "../models/users";
 import { Request, Response } from "express";
-import bcrypt from "bcryptjs";
 import { userService } from "../services";
 
 export const UserController = {
+
+  async login(req: Request, res: Response) {
+    try {
+      const accessToken = await userService.loginUser(req.body);
+
+      if(!accessToken){
+        return res.status(401).json("E-mail ou senha inválido, verifique e tente novamente");
+      }
+      return res.status(200).json(accessToken);
+    } catch (error) {
+
+      return res.status(500).json(error);
+    }
+  },
+
   async create(req: Request, res: Response) {
     try {
       const newUser = await userService.registerUser(req.body);
