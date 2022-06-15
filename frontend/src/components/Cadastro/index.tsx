@@ -34,7 +34,7 @@ const FormCadastro: React.FC = () => (
                     <input className='input' type="link" placeholder="link da foto"></input>
                 </div>
                 <div>
-                    <button className='input' type="submit">enviar</button>
+                <Link to="/login" className="link-button-enviar">enviar</Link>                    
                 </div>
                 
             </div>

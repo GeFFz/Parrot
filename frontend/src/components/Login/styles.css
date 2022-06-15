@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 
-
 main.background-img{
     width: 100%;
     height: 100%;
@@ -79,7 +78,7 @@ input.input::placeholder{
 }
 
 
-button.input{
+div :link.link-button-entrar {
     width: 100%;
     height: 35px;
     display: flex;
@@ -87,9 +86,17 @@ button.input{
     align-items: center;
     border-radius: 10px;
     border: none;
+    color: #909090;
     background-color: #76BB4C;
     font-size: 22px;
     font-family: "Questrial";
+}
+
+div :link{
+    text-decoration: none;
+    color: #909090;
+    font-family: 'Questrial';
+    font-size: 18px;
 }
 
 .link-cadastro{

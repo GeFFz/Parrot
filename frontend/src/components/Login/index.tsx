@@ -23,7 +23,7 @@ const FormLogin: React.FC = () => (
                     <input className='input' type="password" placeholder="senha"></input>
                 </div>
                 <div>
-                    <button className='input' type="submit">entrar</button>
+                <Link to="/" className="link-button-entrar">entrar </Link>
                 </div>
                 <div>
                     <Link to="/cadastro" className="link-cadastro">cadastre-se</Link>
