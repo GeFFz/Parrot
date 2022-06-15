@@ -15,12 +15,12 @@
 <p>Os desenvolvedores do front-end serão responsáveis por criar as páginas com base no
     layout utilizando Bootstrap, Styled-components, React e Redux.</p> 
     <ol>
-       <li> 1. Login </li>
-       <li> a. Dados: email e senha</li>
-       <li> 2. Cadastro do Usuário</li>
-       <li> a. Dados: Nome, email, senha, unidade/apartamento</li>
-       <li>  3. Feed (criar post, listas todos os posts)</li>
-       <li> 4. Página do usuario (posts do usuário)</li>
+       <li>  Login </li>
+       <li>  Dados: email e senha</li>
+       <li>  Cadastro do Usuário</li>
+       <li>  Dados: Nome, email, senha, unidade/apartamento</li>
+       <li>  Feed (criar post, listas todos os posts)</li>
+       <li>  Página do usuario (posts do usuário)</li>
     </ol>
 
 <p>É muito importante que vocês mantenham a comunicação com os devs do back-end
@@ -31,50 +31,56 @@
 <p>Os desenvolvedores do back-end serão responsáveis por construir a API utilizando
     Node.js, Express, Jest, Sequelize, MySQL e Arquitetura Limpa.</p> 
 
-    <ol>1. Criação de banco de dados com base no DER (vide última página)
-        a. via migrations
-        b. utilizar seeders para popular o banco caso necessário
-        2. API Rest com CRUD para usuários e publicações
-        3. Autenticação de usuário
-        4. Implementar Princípios SOLID na arquitetura
-        5. Testes automatizados (unitários e integração), cobrir ao menos:
-        a. controllers
-        b. endpoint (casos de erro também)</ol>
+    <ol>
+        <li> Criação de banco de dados com base no DER (vide última página)</li>
+        <li> via migrations</li>
+        <li> utilizar seeders para popular o banco caso necessário</li>
+        <li> API Rest com CRUD para usuários e publicações</li>
+        <li> Autenticação de usuário</li>
+        <li> Implementar Princípios SOLID na arquitetura</li>
+        <li> Testes automatizados (unitários e integração), cobrir ao menos:</li>
+        <li> controllers</li>
+        <li> endpoint (casos de erro também)</ol>
 
 <p>Garanta que a API está de acordo com os dados esperados na aplicação front-end.</p> 
 
 
 <h1>FUNCIONALIDADES OBRIGATÓRIAS</h1> 
 
-<ol>1. Cadastro e autenticação do usuário
-    2. Autenticação do administrador
-    3. Perfil do usuário com lista de posts
-    4. Criar Post
-    5. Listar posts (Feed)
-    6. Edição do Usuário</ol>
+<ol>
+    <li> Cadastro e autenticação do usuário</li>
+    <li> Autenticação do administrador</li>
+    <li> Perfil do usuário com lista de posts</li>
+    <li> Criar Post</li>
+    <li> Listar posts (Feed)</li>
+    <li> Edição do Usuário</li>
+    </ol>
 
     <h1>FUNCIONALIDADE OPCIONAL</h1>
 
-<ol>1. Like
-    2. Comentário em um post
-    3. Utilização de Loading e Página de erros.</ol>
+<ol>
+    <li> Like</li>
+    <li> Comentário em um post</li>
+    <li> Utilização de Loading e Página de erros.</li>
+    </ol>
 
 <h1>CRITÉRIOS DE AVALIAÇÃO</h1> 
 
-<ol>- Responsividade da aplicação
-    - Validação dos dados de response da API (retorno)
-    - Validação dos dados de request da API (enviados para a API)
-    - Feedback de erro na API (uso de código http condizente com o tipo de erro)
-    - Uso de testes automatizados
-    - Uso de migrations
-    - Migrations devem refletir as configurações propostas no documento DER
-    - Estrutura do código.
-    - Validação de formulário.
-    - Validação de erros na requisição.
-    - Feedback de erros para os usuários
-    - Divisão de tarefas entre os membros da equipe seguindo os princípios da
-    Metodologia Ágil Scrum
-    - Utilizar boas práticas de versionamento de código com Git</ol>
+<ol>
+   <li> - Responsividade da aplicação</li>
+   <li> - Validação dos dados de response da API (retorno)</li>
+   <li> - Validação dos dados de request da API (enviados para a API)</li>
+   <li> - Feedback de erro na API (uso de código http condizente com o tipo de erro)</li>
+   <li>  - Uso de testes automatizados</li>
+   <li> - Uso de migrations</li>
+   <li>  - Migrations devem refletir as configurações propostas no documento DER</li>
+   <li> - Estrutura do código.</li>
+   <li> - Validação de formulário.</li>
+   <li> - Validação de erros na requisição.</li>
+   <li> - Feedback de erros para os usuários</li>
+   <li> - Divisão de tarefas entre os membros da equipe seguindo os princípios da Metodologia Ágil Scrum</li>
+   <li> - Utilizar boas práticas de versionamento de código com Git</li>
+</ol>
 
  <h1>Entrega:</h1>
  <p>Deverá ser enviado o link do Github pela plataforma da Gama Academy até à data
