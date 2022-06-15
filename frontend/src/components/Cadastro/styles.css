@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-main.page-login{
+main.page-cadastro{
     width: 100%;
     height: 100%;
     background-color: rgb(72, 72, 72);
@@ -14,7 +14,7 @@ main.page-login{
     overflow-x: hidden;
 }
 
-div.container-FormLogin{
+div.container-FormCadastro{
     max-width: 487px;
     min-width: 300px;
     max-height: 642px;
@@ -24,15 +24,13 @@ div.container-FormLogin{
     overflow-x: hidden;
 }
 
-div.login {
+div.cadastro {
     width: 100%;
     height: 100%;
     background-color: white;
 }
 
-
-
-.login div{
+.cadastro div{
     width: 70%;
     height: 40%;
     display: flex;
@@ -45,14 +43,14 @@ img.logo{
     height: 38%;
 }
 
-.login{
+.cadastro{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 
-h4.titulo-login{
+h4.titulo-cadastro{
     margin: 0%;
     font-size: 25px;
     font-weight: 100;
@@ -88,11 +86,4 @@ button.input{
     background-color: #76BB4C;
     font-size: 22px;
     font-family: "Questrial";
-}
-
-.link-cadastro{
-    text-decoration: none;
-    font-family: 'Questrial';
-    color: #555555;
-    font-size: 18px;
 }
