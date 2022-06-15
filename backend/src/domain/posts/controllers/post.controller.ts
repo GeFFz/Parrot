@@ -61,7 +61,7 @@ export const PostController = {
       if(responseDelete != 1){
         return res.status(400).json(responseDelete);
       }   
-      return res.status(204);
+      return res.sendStatus(204);
     } catch (error) {
 
       return res.status(500).json(error);

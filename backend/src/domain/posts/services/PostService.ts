@@ -76,7 +76,6 @@ export class PostService {
                 id,
             },
         });
-        console.log(deletedPost);
         return deletedPost
     }
 

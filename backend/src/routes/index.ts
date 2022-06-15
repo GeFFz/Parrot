@@ -2,15 +2,16 @@ const express = require("express");
 const routes = express.Router();
 
 import { PostController } from '../domain/posts/controllers/post.controller';
+import { PostValidation } from '../domain/posts/validations';
 import { UserController } from '../domain/users/controllers/users.controller';
 import { UserValidation } from '../domain/users/validations'
 
-routes.post("/posts", PostController.create);
+routes.post("/posts", PostValidation.create, PostController.create);
 routes.get("/posts", PostController.getAll);
-routes.get("/posts/:id", PostController.getOne);
-routes.get("/posts/user/:userID", PostController.getUserPost);
-routes.put("/posts/:id", PostController.update);
-routes.delete("/posts/:id", PostController.delete);
+routes.get("/posts/:id", PostValidation.getOne, PostController.getOne);
+routes.get("/posts/user/:userID", PostValidation.getUserPost, PostController.getUserPost);
+routes.put("/posts/:id", PostValidation.update, PostController.update);
+routes.delete("/posts/:id", PostValidation.destroy, PostController.delete);
 
 
 
