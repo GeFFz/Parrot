@@ -66,7 +66,7 @@
 
 <h1>CRITÉRIOS DE AVALIAÇÃO</h1> 
 
-<ol>
+<ul>
    <li> - Responsividade da aplicação</li>
    <li> - Validação dos dados de response da API (retorno)</li>
    <li> - Validação dos dados de request da API (enviados para a API)</li>
@@ -80,7 +80,7 @@
    <li> - Feedback de erros para os usuários</li>
    <li> - Divisão de tarefas entre os membros da equipe seguindo os princípios da Metodologia Ágil Scrum</li>
    <li> - Utilizar boas práticas de versionamento de código com Git</li>
-</ol>
+</ul>
 
  <h1>Entrega:</h1>
  <p>Deverá ser enviado o link do Github pela plataforma da Gama Academy até à data
