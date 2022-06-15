@@ -31,17 +31,16 @@
 <p>Os desenvolvedores do back-end serão responsáveis por construir a API utilizando
     Node.js, Express, Jest, Sequelize, MySQL e Arquitetura Limpa.</p> 
 
-    <ol>
-        <li> Criação de banco de dados com base no DER (vide última página)</li>
-        <li> via migrations</li>
+   <ol>  <li> Criação de banco de dados com base no DER (vide última página)via migrations </li>
         <li> utilizar seeders para popular o banco caso necessário</li>
         <li> API Rest com CRUD para usuários e publicações</li>
         <li> Autenticação de usuário</li>
         <li> Implementar Princípios SOLID na arquitetura</li>
         <li> Testes automatizados (unitários e integração), cobrir ao menos:</li>
         <li> controllers</li>
-        <li> endpoint (casos de erro também)</li>
-        </ol>
+        <li> endpoint (casos de erro também)</li></ol>
+      
+
 
 <p>Garanta que a API está de acordo com os dados esperados na aplicação front-end.</p> 
 
@@ -57,7 +56,7 @@
     <li> Edição do Usuário</li>
     </ol>
 
-    <h1> FUNCIONALIDADE OPCIONAL </h1>
+<h1> FUNCIONALIDADE OPCIONAL </h1>
 
 <ol>
     <li> Like</li>
