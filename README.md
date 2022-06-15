@@ -15,12 +15,12 @@
 <p>Os desenvolvedores do front-end serão responsáveis por criar as páginas com base no
     layout utilizando Bootstrap, Styled-components, React e Redux.</p> 
     <ol>
-        1. Login
-        a. Dados: email e senha
-        2. Cadastro do Usuário
-        a. Dados: Nome, email, senha, unidade/apartamento
-        3. Feed (criar post, listas todos os posts)
-        4. Página do usuario (posts do usuário)
+       <li> 1. Login </li>
+       <li> a. Dados: email e senha</li>
+       <li> 2. Cadastro do Usuário</li>
+       <li> a. Dados: Nome, email, senha, unidade/apartamento</li>
+       <li>  3. Feed (criar post, listas todos os posts)</li>
+       <li> 4. Página do usuario (posts do usuário)</li>
     </ol>
 
 <p>É muito importante que vocês mantenham a comunicação com os devs do back-end
