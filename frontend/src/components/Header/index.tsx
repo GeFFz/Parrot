@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo-feed.png';
+import logo from '../../assets/images/logo-feed.png';
 import './styles.css'
 
 const Header: React.FC = () => {

@@ -7,7 +7,7 @@ import { Button, Form } from 'react-bootstrap';
 // import { Container } from './styles';
 
 const FormCadastro: React.FC = () => (
-    <main className='page-cadastro'>
+    <main className="background-img">
         <div className="container-FormCadastro">
             <div className="cadastro">
                 <img className='logo' src={logo} alt="logo" />

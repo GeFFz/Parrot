@@ -7,7 +7,8 @@ import { Button, Form } from 'react-bootstrap';
 // import { Container } from './styles';
 
 const FormLogin: React.FC = () => (
-    <main className='page-login'>
+
+    <main className="background-img">
         <div className="container-FormLogin">
             <div className="login">
                 <img className='logo' src={logo} alt="logo" />
