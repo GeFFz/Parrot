@@ -12,13 +12,13 @@ describe('No controller, ao executar função', () => {
     describe('create', () => {
     
 
-        test('deve retornar erro quando usuário não for criado', async () => {
+        test('sucesso quando usuário for criado', async () => {
             const response = await supertest(app)
             .post('/users')
             .send({
                 
                 "name": "supertest",
-                "email": "supertest2@gmail.com",
+                "email": "supertest03@gmail.com",
                 "password": "12345678",
                 "apartment": "124",
                 
@@ -29,7 +29,7 @@ describe('No controller, ao executar função', () => {
     describe('getAll', () => {
     
 
-        test('deve retornar erro quando não for encontrado nenhum usuário', async () => {
+        test('sucesso  quando listar todos os usuários', async () => {
             const response = await supertest(app)
             .get('/users')
             .send({
@@ -43,7 +43,7 @@ describe('No controller, ao executar função', () => {
     describe('getOne', () => {
     
 
-        test('deve retornar erro quando usuário não for encontrado', async () => {
+        test('sucesso quando usuário específico for encontrado', async () => {
             const response = await supertest(app)
             .get('/users/23')
             .send({ "id": "23",
@@ -57,7 +57,7 @@ describe('No controller, ao executar função', () => {
     describe('update', () => {
     
 
-        test('deve retornar erro quando usuário não consiga alterar o usuário', async () => {
+        test('sucesso quando usuário consegue alterar suas informações', async () => {
             const response = await supertest(app)
             .put('/users/23')
             .send({ 
@@ -75,9 +75,9 @@ describe('No controller, ao executar função', () => {
     describe('destroy', () => {
     
 
-        test('deve retornar erro quando usuário não consiga deletar o usuário', async () => {
+        test('sucesso quando usuário é deletado', async () => {
             const response = await supertest(app)
-            .delete('/users/9')
+            .delete('/users/10')
             .send({ 
 
             })
@@ -90,11 +90,11 @@ describe('No controller, ao executar função', () => {
     describe('login', () => {
     
 
-        test('deve retornar erro caso usuário não consiga logar', async () => {
+        test('sucesso caso usuário informe email e senha corretos', async () => {
             const response = await supertest(app)
             .post('/login')
             .send({ 
-                "email": "supertest5@gmail.com",
+                "email": "hanna@hotmail.com",
                 "password": "12345678"
             })
             

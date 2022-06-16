@@ -22,7 +22,7 @@ describe('No controller, ao executar a função', () => {
             .send({
                 content: "Testando"
             })
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0aGFubmEiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDI4NjM1fQ.wOhNKuco5WQwlwcH81lAG-TZImdQCm-kDsM07uEViZY')
             expect(response.status).toBe(201);
         })
         
@@ -31,12 +31,12 @@ describe('No controller, ao executar a função', () => {
     describe('getAll', () => {
     
 
-        test('deve retornar erro quando não for encontrado nenhum post', async () => {
+        test('sucesso caso existam posts', async () => {
             const response = await supertest(app)
             .get('/posts')
           
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0aGFubmEiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDI4NjM1fQ.wOhNKuco5WQwlwcH81lAG-TZImdQCm-kDsM07uEViZY')
             
             .expect(200);
         })      
@@ -44,12 +44,12 @@ describe('No controller, ao executar a função', () => {
     describe('getOne', () => {
     
         
-        test('deve retornar erro quando post não for encontrado', async () => {
+        test('sucesso quando id do post não exixtir', async () => {
             const response = await supertest(app)
-            .get('/posts/42')
+            .get('/posts/56')
             
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0aGFubmEiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDI4NjM1fQ.wOhNKuco5WQwlwcH81lAG-TZImdQCm-kDsM07uEViZY')
             
             .expect(200);
         })      
@@ -60,12 +60,12 @@ describe('No controller, ao executar a função', () => {
             describe('getUserPost', () => {
     
             
-            test('deve retornar erro quando usuário logado não possuir posts com esse id', async () => {
+            test('sucesso quando usuário logado conseguir os próprios posts', async () => {
                 const response = await supertest(app)
-                .get('/posts/user/61')
+                .get('/posts/user/37')
                 
                 
-                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
+                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0aGFubmEiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDI4NjM1fQ.wOhNKuco5WQwlwcH81lAG-TZImdQCm-kDsM07uEViZY')
                 
                 .expect(200);
             })      
@@ -74,14 +74,14 @@ describe('No controller, ao executar a função', () => {
     describe('update', () => {
     
 
-        test('deve retornar erro quando usuário não consiga alterar o post', async () => {
+        test('sucesso caso usuário consiga alterar seu post', async () => {
             const response = await supertest(app)
-            .put('/posts/45')
+            .put('/posts/57')
             .send({
                 "content": "Maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             })
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0aGFubmEiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDI4NjM1fQ.wOhNKuco5WQwlwcH81lAG-TZImdQCm-kDsM07uEViZY')
                 
             .expect(200);
         })  
@@ -93,7 +93,7 @@ describe('No controller, ao executar a função', () => {
                 "content": "Maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             })
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0IiwiYXBhcnRtZW50IjoxMjQsInBlcm1pc3Npb24iOjEsImlhdCI6MTY1NTQyNDI3NH0.kSZ7-bWqyOVvt6ejMjWqFGqiHKpqBth6XBatvt3zCRA')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0aGFubmEiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDI4NjM1fQ.wOhNKuco5WQwlwcH81lAG-TZImdQCm-kDsM07uEViZY')
                 
             .expect(400);
         })      
@@ -102,12 +102,12 @@ describe('No controller, ao executar a função', () => {
     describe('destroy', () => {
     
 
-        test('deve retornar erro quando usuário não consiga deletar o post', async () => {
+        test('status 204 quando post é deletado com sucesso', async () => {
             const response = await supertest(app)
-            .delete('/posts/47')
+            .delete('/posts/65')
 
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0aGFubmEiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDI4NjM1fQ.wOhNKuco5WQwlwcH81lAG-TZImdQCm-kDsM07uEViZY')
                 
             
             .expect(204);
