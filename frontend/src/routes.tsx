@@ -12,7 +12,6 @@ const AppRoutes: React.FC = () => {
           <Route path='/' element={<Feed />} />
           <Route path='/login' element={<Login />} />
           <Route path='/cadastro' element={<Cadastro />} />
-
         </Routes>
       </BrowserRouter>
   );
