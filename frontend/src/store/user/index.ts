@@ -9,14 +9,19 @@ export enum Permission {
 interface UserState {
     isLogged: boolean,
     accessToken: string,
-    permission: Permission
+    // permission: Permission,
+    // id?: number,
+    // name?: string,
+    // email?: string,
+    // apartment?: string
     
 }
 
 const initialState: UserState = {
     isLogged: false,
     accessToken: "",
-    permission: Permission.Nothing,
+    // permission: Permission.Nothing,
+    // id:undefined,
 }
 
 const usersSlice = createSlice({
@@ -28,7 +33,12 @@ const usersSlice = createSlice({
             Object.assign(state, {
                 isLogged: true,
                 accessToken: action.payload.accessToken,
-                permission: Permission[action.payload.permission]
+                // permission: Permission[action.payload.permission],
+                // id: action.payload.user.id,
+                // name: action.payload.user.name,
+                // email: action.payload.user.email,
+                // apartment: action.payload.user.apartment,
+
             })
         },
         //SignOut

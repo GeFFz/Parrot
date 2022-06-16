@@ -23,9 +23,10 @@ export enum Permission {
 }
 
 
-export const cadastroUsuario = async (user: SignIn) => {
+export const cadastroUsuario = async (user: Omit<User, "id">) => {
     try {
-        const response = await baseAPI.post("/cadastro", user)
+        const response = await baseAPI.post("/users", user)
+        console.log(response.data);        
         return response.data
     } catch (error: any) {
         alert("Error:"+ error.response.data)
@@ -35,6 +36,7 @@ export const cadastroUsuario = async (user: SignIn) => {
 export const loginUsuario = async (signIn: SignIn) => {
     try {
         const response = await baseAPI.post("/login", signIn)
+        console.log(response.data);  
         return response.data
     } catch (error: any) {
         alert("Error:"+ error.response.data)

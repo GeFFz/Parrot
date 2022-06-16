@@ -31,8 +31,8 @@ const FormCadastro: React.FC = () => {
             apartment: Yup.string().required('Por favor preencha com o número do seu apartamento'),
         }),
         onSubmit: async values => {
-          const { accessToken, user } = await cadastroUsuario(values);
-          dispatch(signIn({accessToken, permission: user.permission}))
+          const { accessToken } = await cadastroUsuario(values);
+          dispatch(signIn({accessToken}))
           //@ts-ignore
           baseAPI.defaults.headers["Authorization"] = `Bearer ${accessToken}`
           navigate("/login")
@@ -55,10 +55,10 @@ const FormCadastro: React.FC = () => {
               <Form.Control className='linha-cadastro' id="email" type="email" placeholder="email" value={formik.values.email} onChange={formik.handleChange} isInvalid={formik.touched.email && !!formik.errors.email} isValid={formik.touched.email && !formik.errors.email} />
             </Form.Group>
             <Form.Group className="mb-1 espaco-cadastro" >
-              <Form.Control className='linha-cadastro' id="password" type="password" placeholder="password" value={formik.values.password} onChange={formik.handleChange} isInvalid={formik.touched.password && !!formik.errors.password} isValid={formik.touched.password && !formik.errors.password} />
+              <Form.Control className='linha-cadastro' id="password" autoComplete='on' type="password" placeholder="password" value={formik.values.password} onChange={formik.handleChange} isInvalid={formik.touched.password && !!formik.errors.password} isValid={formik.touched.password && !formik.errors.password} />
             </Form.Group>
             <Form.Group className="mb-1 espaco-cadastro" >
-              <Form.Control className='linha-cadastro' id="confirmPassword" type="password"
+              <Form.Control className='linha-cadastro' id="confirmPassword" autoComplete='on' type="password"
                 value={formik.values.confirmPassword} onChange={formik.handleChange} placeholder="confirmar senha" isInvalid={formik.touched.confirmPassword && !!formik.errors.confirmPassword} isValid={formik.touched.confirmPassword && !formik.errors.apartment} />
             </Form.Group>
             <Form.Group className="mb-1 espaco-cadastro" >
