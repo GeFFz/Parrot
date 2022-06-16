@@ -5,7 +5,9 @@ import { UserService } from "../services/UserService"
 import { Users } from "../models/users";
 import { body } from "express-validator";
 
+
 describe('No controller, ao executar função', () => {
+
 
     describe('create', () => {
     
@@ -27,18 +29,63 @@ describe('No controller, ao executar função', () => {
     describe('getAll', () => {
     
 
-        test('deve retornar erro quando usuário não for criado', async () => {
+        test('deve retornar erro quando não for encontrado nenhum usuário', async () => {
             const response = await supertest(app)
             .get('/users')
             .send({
             })
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoic3VwZXJ0ZXN0NUBnbWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0IiwiYXBhcnRtZW50IjoxMjIsInBlcm1pc3Npb24iOjEsImlhdCI6MTY1NTQwMDQ4NH0.fnX2QRXq3mTjVletkVN6nHwy3TbFy0YhWuiuPcQIV4A')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoic3VwZXJ0ZXN0NUBnbWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0IiwiYXBhcnRtZW50IjoxMjIsInBlcm1pc3Npb24iOjEsImlhdCI6MTY1NTQwNTU3Nn0.O6NZiS1sV5gNx1ARXqlrfMIilAGX42e-75qwf9n-Pbo')
             
             .expect(200);
+        })      
+    })
+    describe('getOne', () => {
+    
 
-        })
-        
+        test('deve retornar erro quando usuário não for encontrado', async () => {
+            const response = await supertest(app)
+            .get('/users/23')
+            .send({ "id": "23",
+            })
+            
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoic3VwZXJ0ZXN0NUBnbWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0IiwiYXBhcnRtZW50IjoxMjIsInBlcm1pc3Npb24iOjEsImlhdCI6MTY1NTQwNTU3Nn0.O6NZiS1sV5gNx1ARXqlrfMIilAGX42e-75qwf9n-Pbo')
+            
+            .expect(200);
+        })      
+    })
+    describe('update', () => {
+    
+
+        test('deve retornar erro quando usuário não consiga alterar o usuário', async () => {
+            const response = await supertest(app)
+            .put('/users/23')
+            .send({ 
+                "name": "supertest",
+                "email": "supertest10@gmail.com",
+                "password": "12345678",
+                "apartment": "124",
+            })
+            
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoic3VwZXJ0ZXN0NUBnbWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0IiwiYXBhcnRtZW50IjoxMjIsInBlcm1pc3Npb24iOjEsImlhdCI6MTY1NTQwNTU3Nn0.O6NZiS1sV5gNx1ARXqlrfMIilAGX42e-75qwf9n-Pbo')
+            
+            .expect(200);
+        })      
+    })
+    describe('destroy', () => {
+    
+
+        test('deve retornar erro quando usuário não consiga deletar o usuário', async () => {
+            const response = await supertest(app)
+            .delete('/users/9')
+            .send({ 
+
+            })
+            
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoic3VwZXJ0ZXN0NUBnbWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0IiwiYXBhcnRtZW50IjoxMjIsInBlcm1pc3Npb24iOjEsImlhdCI6MTY1NTQwNTU3Nn0.O6NZiS1sV5gNx1ARXqlrfMIilAGX42e-75qwf9n-Pbo')
+            
+            .expect(204);
+        })      
     })
 
 })
