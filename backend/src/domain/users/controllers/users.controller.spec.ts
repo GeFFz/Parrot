@@ -87,5 +87,18 @@ describe('No controller, ao executar função', () => {
             .expect(204);
         })      
     })
+    describe('login', () => {
+    
 
+        test('deve retornar erro caso usuário não consiga logar', async () => {
+            const response = await supertest(app)
+            .post('/login')
+            .send({ 
+                "email": "supertest5@gmail.com",
+                "password": "12345678"
+            })
+            
+            .expect(200);
+        })      
+    })
 })

@@ -27,10 +27,11 @@ const FormLogin: React.FC = () => {
         }),
         onSubmit: async values => {
           const { accessToken, user } = await loginUsuario(values);
-          dispatch(signIn({accessToken, permission: user.permission, user}))
+          // console.log(accessToken);          
+          dispatch(signIn({accessToken}))
           //@ts-ignore
           baseAPI.defaults.headers["Authorization"] = `Bearer ${accessToken}`
-          navigate("/feed")
+          navigate("/")
         }
       });
 
@@ -47,7 +48,7 @@ const FormLogin: React.FC = () => {
               <Form.Control className='linha-login' id="email" type="email" placeholder="email" value={formik.values.email} onChange={formik.handleChange} isInvalid={formik.touched.email && !!formik.errors.email} isValid={formik.touched.email && !formik.errors.email} />
             </Form.Group>
             <Form.Group className="mb-1 espaco-login" >
-              <Form.Control className='linha-login' id="password" type="password" placeholder="password" value={formik.values.password} onChange={formik.handleChange} isInvalid={formik.touched.password && !!formik.errors.password} isValid={formik.touched.password && !formik.errors.password} />
+              <Form.Control className='linha-login' id="password" autoComplete='on' type="password" placeholder="password" value={formik.values.password} onChange={formik.handleChange} isInvalid={formik.touched.password && !!formik.errors.password} isValid={formik.touched.password && !formik.errors.password} />
             </Form.Group>
             <Button variant="" type="submit" className='botao-login'>
               entrar

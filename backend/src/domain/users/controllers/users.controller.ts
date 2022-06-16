@@ -15,7 +15,7 @@ export const UserController = {
       if(!accessToken){
         return res.status(401).json("E-mail ou senha inválido, verifique e tente novamente");
       }
-      return res.status(201).json(accessToken);
+      return res.status(200).json(accessToken);
     } catch (error) {
 
       return res.status(500).json(error);
