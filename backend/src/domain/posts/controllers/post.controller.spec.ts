@@ -16,14 +16,14 @@ describe('No controller, ao executar a função', () => {
             expect(typeof PostController.create).toBe('function')
         });
 
-        test('em caso de sucesso, deve retornar 401.', async () => {
+        test('em caso de sucesso, deve retornar 200.', async () => {
             const response = await supertest(app)
             .post('/posts')
             .send({
                 content: "Testando"
             })
-    
-            expect(response.status).toBe(401);
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
+            expect(response.status).toBe(201);
         })
         
     })
@@ -34,10 +34,9 @@ describe('No controller, ao executar a função', () => {
         test('deve retornar erro quando não for encontrado nenhum post', async () => {
             const response = await supertest(app)
             .get('/posts')
-            .send({
-            })
+          
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
             
             .expect(200);
         })      
@@ -47,11 +46,10 @@ describe('No controller, ao executar a função', () => {
         
         test('deve retornar erro quando post não for encontrado', async () => {
             const response = await supertest(app)
-            .get('/post/41')
+            .get('/posts/42')
             
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o'
-            )
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
             
             .expect(200);
         })      
@@ -64,10 +62,10 @@ describe('No controller, ao executar a função', () => {
             
             test('deve retornar erro quando usuário logado não possuir posts com esse id', async () => {
                 const response = await supertest(app)
-                .get('posts/user/24')
+                .get('/posts/user/61')
                 
                 
-                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o')
+                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
                 
                 .expect(200);
             })      
@@ -78,13 +76,12 @@ describe('No controller, ao executar a função', () => {
 
         test('deve retornar erro quando usuário não consiga alterar o post', async () => {
             const response = await supertest(app)
-            .put('/posts/41')
+            .put('/posts/45')
             .send({
-                "content": "MUAHAHAA2",
-                "user_id": "6"
+                "content": "Maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             })
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
                 
             .expect(200);
         })      
@@ -94,12 +91,10 @@ describe('No controller, ao executar a função', () => {
 
         test('deve retornar erro quando usuário não consiga deletar o post', async () => {
             const response = await supertest(app)
-            .delete('/posts/41')
-            .send({ 
+            .delete('/posts/47')
 
-            })
             
-            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o')
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
                 
             
             .expect(204);
