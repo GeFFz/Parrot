@@ -1,10 +1,14 @@
 import { Request, Response } from "express";
 import { postService } from "../services";
 
+interface AuthRequest extends Request{
+  auth: any
+}
+
 export const PostController = {
-  async create(req: Request, res: Response) {
+  async create(req: AuthRequest, res: Response) {
     try {
-      const newPost = await postService.registerPost(req.body);
+      const newPost = await postService.registerPost(req.body, req.auth);
       return res.status(201).json(newPost);
     } catch (error) {
 
@@ -12,7 +16,7 @@ export const PostController = {
     }
   },  
 
-  async getAll(req: Request, res: Response) {
+  async getAll(req: AuthRequest, res: Response) {
     try {
       const Posts = await postService.allPosts();
       return res.status(200).json(Posts);
@@ -22,7 +26,7 @@ export const PostController = {
     }
   },
 
-  async getOne(req: Request, res: Response) {
+  async getOne(req: AuthRequest, res: Response) {
     try {
       const Post = await postService.onePost(req.params);
       return res.status(200).json(Post);
@@ -32,9 +36,9 @@ export const PostController = {
     }
   },
 
-  async getUserPost(req: Request, res: Response) {
+  async getUserPost(req: AuthRequest, res: Response) {
     try {
-      const userPosts = await postService.postsUser(req.params);      
+      const userPosts = await postService.postsUser(req.params, req.auth);      
       return res.status(200).json(userPosts);
     } catch (error) {
 
@@ -42,9 +46,9 @@ export const PostController = {
     }
   },
 
-  async update(req: Request, res: Response) {
+  async update(req: AuthRequest, res: Response) {
     try {
-      const alteredPost = await postService.alterPost(req.body, req.params);
+      const alteredPost = await postService.alterPost(req.body, req.params, req.auth);
       if(!alteredPost){
         return res.status(400).json("ID do usuário diferente do esperado!");
       }
@@ -55,9 +59,9 @@ export const PostController = {
     }
   },
 
-  async delete(req: Request, res: Response) {
+  async delete(req: AuthRequest, res: Response) {
     try {
-      const responseDelete = await postService.excludePost(req.body, req.params);   
+      const responseDelete = await postService.excludePost(req.params, req.auth);   
       if(responseDelete != 1){
         return res.status(400).json(responseDelete);
       }   

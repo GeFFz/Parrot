@@ -6,6 +6,5 @@ export const update = validate({
   }),
   body: Joi.object({
     content: Joi.string().required(),
-    user_id: Joi.number().required(),
   }),
 });
