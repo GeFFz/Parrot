@@ -4,7 +4,7 @@ div {
     font-family: 'Questrial', sans-serif;
 }
 
-.background{
+div.background-cadastro{
     width: 100%;
     height: 100%;
     background-color: rgb(72, 72, 72);
@@ -18,44 +18,42 @@ div {
     overflow-x: hidden;
 }
 
-div.containerForm{
+div.containerForm-cadastro{
     max-width: 450px;
-    min-width: 300px;
-    max-height: 841px;
-    min-height: 450px;
-    width: 28%;
-    height: 68%;
+    min-width: 350px;
+    max-height: 750px;
+    min-height: 700px;
+    width: 32%;
+    height: 78%;
     overflow-x: hidden;
     background-color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-}
-
-.containerForm {
-    width: 33%;
     border: 1px solid #909090;
-    background-color: #fff;
-    padding: 3%;
 }
 
-.divImage, h3  {
+.divImage-container, h3  {
     text-align: center;
 }
 
-.divImage img {
+.divImage-container img {
     height: 161px;
 }
 
-h3 {
-    margin-bottom: 2% !important;
+div h3.titulo-cadastro {
+    padding: 0%;
+    margin-bottom: 0% !important;
+    font-size: 24px;
+    font-weight: 400;
 }
 
-.form {
+div.form-cadastro {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
 }
 
 input::placeholder {
@@ -65,31 +63,36 @@ input::placeholder {
     font-family: "Questrial";
 }
 
-button {
+div button.botao-cadastro {
     background-color: #76BB4C !important;
-    height: 25px;
+    height:35px;
     border: 0 none !important;
     border-radius: 10px !important;
     color: #000 !important;
     font-weight: 600 !important;
     transition: 0.4s ease-in-out !important;
-    font-size: 20;
-    width: 54vh;
+    font-size: 24px;
+    font-weight: 300;
+    width: 330px;
 
 }
 
-/* .espaco{
-    padding: 10px;
-} */
+div.espaco-cadastro{
+    padding-bottom: 5px;
+}
 
-.linha{
-    width: 50vh;
-    height: 25px;
+.linha-cadastro{
+    width: 320px;
+    height: 35px;
     margin: 8px;
     border-radius: 10px;
+    border: 1px solid 
+    #909090;
+    font-size: 24px;
+    
 }
 
-button:hover {
+button.botao:hover {
     background-color: #76BB4C !important;
     border: transparent !important;
     border-radius: 13px !important;
@@ -97,16 +100,19 @@ button:hover {
     font-weight: 600 !important;
 }
 
-div a {
+div a.link-cadastro {
+    padding-top: 20px;
     text-decoration: none;
     color: #555555;
+    font-size: 18px;
+    font-weight: 400;
     transition: ease-in-out 0.2s;
     display: flex;
     justify-content: center;
     transition: 0.3s ease-in-out;
 }
 
-div a:hover {
+div a.link:hover {
     color: #191b18 !important;
 }
 
