@@ -16,7 +16,7 @@ const Header: React.FC = () => {
             <Link to="/perfil" className="menu-user">Usuário |</Link>
           </li>
           <li >
-            <Link to="/login" className="menu-sair">sair</Link>
+            <Link to="/" className="menu-sair">sair</Link>
           </li>
         </ul>
       </nav>

@@ -2,7 +2,7 @@ main.post-container{
     display: flex;
     background-color: #fff;
     border: 1px solid #C5C5C5;
-    padding: 3vh;
+    padding: 1.75rem;
     justify-content: space-between;
     width: 700px;
 }
@@ -11,7 +11,7 @@ main div.user-img {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 3vh;
+    padding: 1rem 1rem;
 }
 
 main div.post div{
@@ -25,11 +25,11 @@ main div.post div textarea {
     border: 1px solid #8BC34A;
     border-radius: 10px;
     position:relative;
-    height: 8vh;
+    height: 5rem;
 }
 main div.post div.button-publicar{
     display: flex;
-    padding-top: 1.5vh;
+    padding-top: .5rem;
     align-items: flex-end;
 }
 

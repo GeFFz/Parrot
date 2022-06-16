@@ -1,0 +1,26 @@
+div.user-img-feed {
+    padding: 1rem 2rem;
+}
+
+div.feed-content {
+    display: flex;
+    flex-direction: column;
+}
+
+div.userInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+div.userInfo p.userNameApart{
+    margin: 0;
+    padding: 0 1rem 0 0;
+    color: green;
+}
+
+div.userInfo p.userDateTime {
+    margin-top: 0;
+    font-size: 14px;
+    color: #909090;
+}
