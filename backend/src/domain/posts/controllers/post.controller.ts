@@ -9,6 +9,7 @@ export const PostController = {
   async create(req: AuthRequest, res: Response) {
     try {
       const newPost = await postService.registerPost(req.body, req.auth);
+      console.log(req.auth);
       return res.status(201).json(newPost);
     } catch (error) {
 
