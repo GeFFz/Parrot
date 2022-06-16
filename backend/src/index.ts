@@ -10,10 +10,4 @@ app.use(routes);
 app.use(handleMiddleware);
 
 
-
-
-
-
-
-
 export default app;

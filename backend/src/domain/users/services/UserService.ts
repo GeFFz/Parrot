@@ -44,11 +44,15 @@ export class UserService {
     }
 
     
-    async alterUser(data: any, params: any) {
+    async alterUser(data: any, params: any, auth: any ) {
         const { id } = params;
         const { password } = data;
         const payloadUpdate = {};
 
+
+        if(auth.id != id){
+            return
+        }
         Object.assign(payloadUpdate, data);
 
         if (password) {
@@ -66,8 +70,12 @@ export class UserService {
         return user;
     }
 
-    async excludeUser(params: any) {
+    async excludeUser(params: any, auth: any) {
         const { id } = params;
+
+        if(auth.id != id){
+            return
+        }
 
         const userPosts = await Posts.count({
             where:{

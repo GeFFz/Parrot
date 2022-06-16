@@ -1,6 +1,11 @@
 import { Request, Response } from "express";
 import { userService } from "../services";
 
+interface AuthRequest extends Request{
+  auth: any
+}
+
+
 export const UserController = {
 
   async login(req: Request, res: Response) {
@@ -27,24 +32,26 @@ export const UserController = {
     }
   },
   
-  async update(req: Request, res: Response) {
+  async update(req: AuthRequest, res: Response) {
     try {
-      const alteredUser = await userService.alterUser(req.body, req.params);
+      const alteredUser = await userService.alterUser(req.body, req.params, req.auth);
       return res.status(200).json(alteredUser);
     } catch (error) {
       return res.status(500).json(error);
     }
   },
 
-  async delete(req: Request, res: Response) {
+  async delete(req: AuthRequest, res: Response) {
     try {      
-      await userService.excludeUser(req.params);
+      await userService.excludeUser(req.params, req.auth);
       return res.sendStatus(204);
     } catch (error) {
       return res.status(500).json(error);
     }
   },
-  async getAll(req: Request, res: Response) {
+
+  
+  async getAll(req: AuthRequest, res: Response) {
     try {
       const users = await userService.allUsers();
       return res.json(users);
@@ -53,7 +60,7 @@ export const UserController = {
       return res.status(500).json(error);
     }
   },
-  async getOne(req: Request, res: Response) {
+  async getOne(req: AuthRequest, res: Response) {
     try {
       const user = await userService.oneUser(req.params);
       return res.json(user);

@@ -2,11 +2,10 @@ import { Posts } from "../models/posts";
 
 export class PostService {
 
-    async registerPost(data: any) {
-        const { content } = data;
-
+    async registerPost(data: any, auth: any) {
         const registeredPost = await Posts.create({
-            ...data
+            ...data,
+            user_id: auth.id
         });
         return registeredPost;
     }
@@ -23,8 +22,11 @@ export class PostService {
         return uniquePost;
     }
 
-    async postsUser(params: any) {
+    async postsUser(params: any, auth: any) {
         const { userID } = params;
+        if(userID != auth.id){
+            return "Erro de autenticação algo assim"
+        }
 
         const groupPosts = await Posts.findAll({
             where: {
@@ -34,17 +36,15 @@ export class PostService {
         return groupPosts;
     }
 
-    async alterPost(data: any, params: any) {
+    async alterPost(data: any, params: any, auth: any) {
         const { id } = params;
-        const { user_id } = data;
 
         const tryModifyPost = await Posts.update({
-            ...data,
-            
+            ...data,            
         }, {
             where: {
                 id,
-                user_id
+                user_id: auth.id
             },
         });
 
@@ -56,14 +56,13 @@ export class PostService {
         return modifyPost;
     }
 
-    async excludePost(data: any, params: any) {
+    async excludePost(params: any, auth: any) {
         const { id } = params;
-        const { user_id } = data;
 
         const hasPost = await Posts.count({
           where: {
             id,
-            user_id
+            user_id: auth.id
           },
         });
 
