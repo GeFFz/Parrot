@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-main.background-img{
+div {
+    font-family: 'Questrial', sans-serif;
+}
+
+.background{
     width: 100%;
     height: 100%;
     background-color: rgb(72, 72, 72);
@@ -14,66 +18,97 @@ main.background-img{
     overflow-x: hidden;
 }
 
-div.container-FormCadastro{
-    max-width: 487px;
+div.containerForm{
+    max-width: 450px;
     min-width: 300px;
     max-height: 841px;
     min-height: 450px;
-    width: 34%;
-    height: 85%;
+    width: 28%;
+    height: 68%;
     overflow-x: hidden;
-}
-
-div.cadastro {
-    width: 100%;
-    height: 100%;
     background-color: white;
-}
-
-.cadastro div{
-    width: 70%;
-    height: 40%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-img.logo{
-    width: 35%;
-    height: 38%;
+.containerForm {
+    width: 33%;
+    border: 1px solid #909090;
+    background-color: #fff;
+    padding: 3%;
 }
 
-.cadastro{
+.divImage, h3  {
+    text-align: center;
+}
+
+.divImage img {
+    height: 161px;
+}
+
+h3 {
+    margin-bottom: 2% !important;
+}
+
+.form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    align-items: stretch;
 }
 
-h4.titulo-cadastro{
-    margin: 0%;
-    font-size: 25px;
-    font-weight: 100;
-    font-family: "Questrial";
-}
-
-input.input{
-    width: 100%;
-    height: 35px;
-    border-radius: 10px;
-    border: 1px solid;
+input::placeholder {
+    text-align: center;
     color: #909090;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 22px;
     font-family: "Questrial";
 }
 
-input.input::placeholder{
-    text-align: center;
+button {
+    background-color: #76BB4C !important;
+    height: 25px;
+    border: 0 none !important;
+    border-radius: 10px !important;
+    color: #000 !important;
+    font-weight: 600 !important;
+    transition: 0.4s ease-in-out !important;
+    font-size: 20;
+    width: 54vh;
+
 }
 
+/* .espaco{
+    padding: 10px;
+} */
+
+.linha{
+    width: 50vh;
+    height: 25px;
+    margin: 8px;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #76BB4C !important;
+    border: transparent !important;
+    border-radius: 13px !important;
+    color: #000 !important;
+    font-weight: 600 !important;
+}
+
+div a {
+    text-decoration: none;
+    color: #555555;
+    transition: ease-in-out 0.2s;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+}
+
+div a:hover {
+    color: #191b18 !important;
+}
 
 div :link.link-button-enviar {
     width: 100%;
@@ -85,13 +120,12 @@ div :link.link-button-enviar {
     border: none;
     color: #909090;
     background-color: #76BB4C;
-    font-size: 22px;
-    font-family: "Questrial";
+    font-size: 35px;
 }
+
 
 div :link{
     text-decoration: none;
     color: #909090;
-    font-family: 'Questrial';
     font-size: 18px;
 }

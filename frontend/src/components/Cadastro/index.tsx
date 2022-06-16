@@ -1,172 +1,99 @@
-import React, { FormEvent, useState } from 'react';
+import React from 'react';
 import "./styles.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from "../../assets/images/logo.png"
-import { Button, Form } from 'react-bootstrap';
-import { cadastroUsuario } from '../../services/API/cadastroUser';
+import { Alert, Button, Form } from 'react-bootstrap';
+import { cadastroUsuario, loginUsuario } from '../../services/API/auth';
+import { useDispatch } from 'react-redux';
+import { useFormik } from 'formik';  //ok
+import * as Yup from 'yup';
+import baseAPI from '../../services/API/api_parrot';
+import { signIn } from '../../store/user';
 
 // import { Container } from './styles';
 
+const FormCadastro: React.FC = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const formik = useFormik({
+        initialValues: {
+          name: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          apartment: "",
+        },
+        validationSchema: Yup.object({
+            name: Yup.string().required('Por favor preencha com seu nome'),
+            email: Yup.string().email('Por favor preencha com um email válido').required('Por favor preencha com seu email'),
+            password: Yup.string().required('Por favor preencha com uma password').min(8, 'Sua password deve ter no mínimo 8 caracteres').max(12, 'Sua password deve ter no máximo 12 caracteres'),
+            confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'As passwords não são iguais').required('Por favor preencha com uma password'),
+            apartment: Yup.string().required('Por favor preencha com o número do seu apartamento'),
+        }),
+        onSubmit: async values => {
+          const { accessToken, user } = await cadastroUsuario({...values});
+          dispatch(signIn({accessToken, permission: user.permission}))
+          //@ts-ignore
+          baseAPI.defaults.headers["Authorization"] = `Bearer ${accessToken}`
+          navigate("/login")
+        }
+      });
 
-export default function FormularioCadastro(){
-    const [name, setName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [passwordConfirm, setPasswordConfirm] = useState<string>("");
-    const [apartment, setApartment] = useState<number>(0);
+      return(
 
-    const cadastro = async (event: FormEvent) =>{
-        event.preventDefault();
-
-        const payload = {
-            name,
-            email,
-            password,
-            apartment,
-        };
-
-        try{
-            const response = await cadastroUsuario(payload);
-
-            if(response.status != 201){
-                return alert("Deu algo errado");
-            }
-            alert("Cadastro efetuado com sucesso");
-            
-        }catch(error){
-            alert("Erro de catch");
-            }
-    };
-
-    return (
-
-        <main className="background-img">
-        <div className="container-FormCadastro">
-            <div className="cadastro">
-                <img className='logo' src={logo} alt="logo" />
-                <div >
-                    <h4 className='titulo-cadastro'>Cadastro</h4>
-                </div>
-                <div>
-                    <form onSubmit={cadastro} className="form-cadastro">
-                    <div >
-                        <input 
-                        className='input' 
-                        type="text"
-                        value={name} 
-                        onChange={(event) => setName(event.target.value)} 
-                        placeholder="nome"
-                        />
-                    </div>
-                    <div >
-                        <input className='input' 
-                        type="Email" 
-                        value={email} 
-                        onChange={(event) => setEmail(event.target.value)}
-                        placeholder="email"
-                        />
-                    </div>
-                    <div >
-                        <input 
-                        className='input' 
-                        type="password" 
-                        value={password} 
-                        onChange={(event) => setPassword(event.target.value)}
-                        placeholder="senha"
-                        />
-                    </div>
-                    <div >
-                        <input 
-                        className='input' 
-                        type="password" 
-                        value={passwordConfirm} 
-                        onChange={(event) => setPasswordConfirm(event.target.value)}
-                        placeholder="confirmar senha"
-                        />
-                        
-                    </div>
-                    <div >
-                        <input 
-                        className='input' 
-                        type="number" 
-                        value={apartment} 
-                        onChange={(event) => setApartment(event.target.value)}
-                        placeholder="unidade/apartamento"
-                        />
-                    </div>
-                    <div>
-                        <button type='submit'>
-                            <Link to="/login" className="link-button-enviar">enviar</Link>
-                        </button>                                        
-                    </div>
-                </form>
-                </div>
-                
-
-                
-                
-                
-            </div>
+        <div className="background">
+        <div className="containerForm">
+          <div className="divImage">
+            <img src={logo} alt="logo" />
+          </div>
+          <h3>CADASTRO</h3>
+          <Form className="form" onSubmit={formik.handleSubmit}>
+            <Form.Group className="mb-1 espaco">
+              <Form.Control className='linha' id="name" type="text" placeholder="name" value={formik.values.name} onChange={formik.handleChange} isInvalid={formik.touched.name && !!formik.errors.name} isValid={formik.touched.name  && !formik.errors.name} />
+            </Form.Group>
+            <Form.Group className="mb-1 espaco">
+              <Form.Control className='linha' id="email" type="email" placeholder="email" value={formik.values.email} onChange={formik.handleChange} isInvalid={formik.touched.email && !!formik.errors.email} isValid={formik.touched.email && !formik.errors.email} />
+            </Form.Group>
+            <Form.Group className="mb-1 espaco" >
+              <Form.Control className='linha' id="password" type="password" placeholder="password" value={formik.values.password} onChange={formik.handleChange} isInvalid={formik.touched.password && !!formik.errors.password} isValid={formik.touched.password && !formik.errors.password} />
+            </Form.Group>
+            <Form.Group className="mb-1 espaco" >
+              <Form.Control className='linha' id="confirmPassword" type="password"
+                value={formik.values.confirmPassword} onChange={formik.handleChange} placeholder="confirmar senha" isInvalid={formik.touched.confirmPassword && !!formik.errors.confirmPassword} isValid={formik.touched.confirmPassword && !formik.errors.apartment} />
+            </Form.Group>
+            <Form.Group className="mb-1 espaco" >
+              <Form.Control className='linha' id="apartment" type="text" placeholder="unidade/apartamento" value={formik.values.apartment} onChange={formik.handleChange} isInvalid={formik.touched.apartment && !!formik.errors.apartment} isValid={formik.touched.apartment && !formik.errors.apartment} />
+            </Form.Group>
+            <Button variant="" type="submit" className='botao'>
+              entrar
+            </Button>
+            {formik.errors.email && formik.touched.email
+              && (
+                <Alert style={{ marginTop: 15 }} variant="danger">
+                  {formik.errors.email}
+                  {formik.errors.password && formik.touched.password
+              && (
+                <Alert style={{ marginTop: 15 }} variant="danger">
+                  {formik.errors.password}
+                </Alert>
+              )}
+            {formik.errors.confirmPassword && formik.touched.confirmPassword
+              && (
+                <Alert style={{ marginTop: 15 }} variant="danger">
+                  {formik.errors.confirmPassword}
+                </Alert>
+              )}
+                </Alert>
+              )}
+            <div>
+              <a className="" href="/login">Voltar</a></div>
+          </Form>
         </div>
-    </main>
+      </div>
+
+       
     )
-
-
-
-
-
 
 }
 
-
-
-
-
-
-
-
-
-
-
-// const FormCadastro: React.FC = () => (
-
-
-
-//     <main className="background-img">
-//         <div className="container-FormCadastro">
-//             <div className="cadastro">
-//                 <img className='logo' src={logo} alt="logo" />
-
-//                 <div >
-//                     <h4 className='titulo-cadastro'>Cadastro</h4>
-//                 </div>
-//                 <div >
-//                     <input className='input' type="text" placeholder="nome"></input>
-//                 </div>
-//                 <div >
-//                     <input className='input' type="Email" placeholder="email"></input>
-//                 </div>
-//                 <div >
-//                     <input className='input' type="password" placeholder="senha"></input>
-//                 </div>
-//                 <div >
-//                     <input className='input' type="password" placeholder="confirmar senha"></input>
-//                 </div>
-//                 <div >
-//                     <input className='input' type="number" placeholder="unidade/apartamento"></input>
-//                 </div>
-//                 <div >
-//                     <input className='input' type="link" placeholder="link da foto"></input>
-//                 </div>
-//                 <div>
-//                 <Link to="/login" className="link-button-enviar">enviar</Link>                    
-//                 </div>
-                
-//             </div>
-//         </div>
-//     </main>
-
-
-// )
-
-// export default FormCadastro;
+export default FormCadastro;
