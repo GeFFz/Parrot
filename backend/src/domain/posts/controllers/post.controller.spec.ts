@@ -3,33 +3,14 @@ import app from "../../..";
 import { PostController } from "./post.controller"
 
 
+
 describe('No controller, ao executar a função', () => {
 
-    // const reqGeneric = {
-    //     body: {
-    //         "content": "EU NAO AGUENTO MAIS ESSE BARULHO"
-    //     },
-    //     auth: {
-    //         id: 24,
-    //         email: 'pinsta@gmail.com',
-    //         name: 'Postador do Intagram',
-    //         apartment: 302,
-    //         permission: 1
-
-    //     }
-    // };
-    // const expectedRes = {
-    //     "id": 43,
-    //     "content": "O inquilino do 202 faz muito barulho de madrugada!!!",
-    //     "user_id": 24,
-    //     "updatedAt": "2022-06-16T16:59:08.794Z",
-    //     "createdAt": "2022-06-16T16:59:08.794Z"
-    // }
-
+    
 
 
     describe('create', () => {
-        // const emailTest = "5512" ;
+       
 
         test('caso sucesso é do tipo function.', () => {
             expect(typeof PostController.create).toBe('function')
@@ -46,4 +27,83 @@ describe('No controller, ao executar a função', () => {
         })
         
     })
+
+    describe('getAll', () => {
+    
+
+        test('deve retornar erro quando não for encontrado nenhum post', async () => {
+            const response = await supertest(app)
+            .get('/posts')
+            .send({
+            })
+            
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o')
+            
+            .expect(200);
+        })      
+    })
+    describe('getOne', () => {
+    
+        
+        test('deve retornar erro quando post não for encontrado', async () => {
+            const response = await supertest(app)
+            .get('/post/41')
+            
+            
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o'
+            )
+            
+            .expect(200);
+        })      
+    })
+
+
+ 
+            describe('getUserPost', () => {
+    
+            
+            test('deve retornar erro quando usuário logado não possuir posts com esse id', async () => {
+                const response = await supertest(app)
+                .get('posts/user/24')
+                
+                
+                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o')
+                
+                .expect(200);
+            })      
+        })
+
+    describe('update', () => {
+    
+
+        test('deve retornar erro quando usuário não consiga alterar o post', async () => {
+            const response = await supertest(app)
+            .put('/posts/41')
+            .send({
+                "content": "MUAHAHAA2",
+                "user_id": "6"
+            })
+            
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o')
+                
+            .expect(200);
+        })      
+    })
+    describe('destroy', () => {
+    
+
+        test('deve retornar erro quando usuário não consiga deletar o post', async () => {
+            const response = await supertest(app)
+            .delete('/posts/41')
+            .send({ 
+
+            })
+            
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoic3VwZXJ0ZXN0MzEwQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QiLCJhcGFydG1lbnQiOjEyNCwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDIxMDg3fQ.8z2xbimq2zT-8BsOqFRKQgjLnorE5jXJXD-ydSg6y-o')
+                
+            
+            .expect(204);
+        })      
+    })
+
 })
