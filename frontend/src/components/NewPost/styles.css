@@ -4,7 +4,7 @@ main.post-container{
     border: 1px solid #C5C5C5;
     padding: 1.75rem;
     justify-content: space-between;
-    width: 700px;
+    width: 42rem;
 }
 
 main div.user-img {
@@ -50,3 +50,4 @@ main div.post div.button-publicar button{
 div.post-content p{
     padding-bottom: 1rem;
 }
+

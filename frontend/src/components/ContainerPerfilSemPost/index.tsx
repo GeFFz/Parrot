@@ -4,7 +4,10 @@ import './styles.css'
 
 const ContainerPerfilSemPost: React.FC = () => {
     return (
-        <div></div>
+        <div className="containerPerfilSemPost">
+            <h2>Você ainda não fez nenhuma publicação :(</h2>
+            <img src={logo} alt="logo parrot" />
+        </div>
     )
 }
 
