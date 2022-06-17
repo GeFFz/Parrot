@@ -11,13 +11,6 @@ interface PostFeedProps {
 const FeedContent: React.FC = () => {
 
 
-    //retorna dados - fetch da api
-    //criar uma funcao
-    // 
-
-
-
-
     return (
         <main className="post-container">
             <div className="user-img-feed">

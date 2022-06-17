@@ -29,12 +29,12 @@ export interface UserState {
 }
 
 export interface Post {
-    id: number,
-    user_name: string,
-    user_email: string,
-    user_apartment: number,
-    comentario: string,
-    user_id: number
+    id?: number,
+    user_name?: string,
+    user_email?: string,
+    user_apartment?: number,
+    content: string,
+    user_id?: number
 }
 
 

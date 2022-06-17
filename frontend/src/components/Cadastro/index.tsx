@@ -12,6 +12,7 @@ import { signIn } from '../../store/user';
 
 // import { Container } from './styles';
 
+
 const FormCadastro: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
