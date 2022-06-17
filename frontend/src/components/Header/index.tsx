@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   return (
     <header>
       <div className="logo-area">
-        <img src={logo} alt ="parrot logo"/>
+        <Link to="/feed"><img src={logo} alt ="parrot logo"/></Link>
       </div>
       <nav className="menu">
         <ul>

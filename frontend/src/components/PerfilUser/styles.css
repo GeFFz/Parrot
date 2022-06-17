@@ -1,0 +1,49 @@
+* {
+    font-family: 'Questrial';
+}
+
+main.perfil-container{
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #C5C5C5;
+    padding: 1.75rem;
+    width: 42rem;
+}
+
+div.perfilInfoUser {
+    display: flex;
+    flex-direction: column;
+    padding-left: .75rem;
+}
+
+div.perfilUserName {
+    color: #76BB4C;
+    font-size: 25px;
+    padding-bottom: .75rem
+}
+
+div.perfilUserApart, div.perfilUserEmail {
+    font-size: 16px;
+    padding-bottom: .75rem
+}
+
+div.infoContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+div.buttonPerfil button.editarPerfil {
+    color: #fff;
+    background: #76BB4C;
+    border-radius: 30px;
+    border: none;
+    width: 5.5rem;
+    height: 1.75rem;
+    font-size: 16px;
+}
+
+div.buttonPerfil {
+    width: 22rem;
+    display: flex;
+    justify-content: flex-end;
+}
