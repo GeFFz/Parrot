@@ -1,4 +1,4 @@
-import { useFormik } from 'formik';
+import { Form, useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -11,18 +11,13 @@ import './styles.css'
 const NewPost: React.FC = () => {
 
     const id = useSelector((state: RootState) => state.usersSlice.id) as number;
-    const name  = useSelector((state: RootState) => state.usersSlice.name) as string;
+    const name = useSelector((state: RootState) => state.usersSlice.name) as string;
     const email = useSelector((state: RootState) => state.usersSlice.email) as string;
     const apartment = useSelector((state: RootState) => state.usersSlice.apartment) as number;
     const dispatch = useDispatch();
     const formik = useFormik({
         initialValues: {
-            id: '',
-            user_name: '',
-            user_email: '',
-            user_apartment: '',
-            comentario: '',
-            user_id: ''
+            content: ''
         },
         onSubmit: async values => {
             const data = await createPost({ ...values, user_id: id, user_apartment: apartment, user_email: email, user_name: name });
@@ -41,15 +36,16 @@ const NewPost: React.FC = () => {
                 </Link>
             </div>
             <div className="post">
-                <form onSubmit={formik.handleChange}>
-                    <div>
-                        <textarea className="post-area" placeholder="Deixe aqui seu comentário" value={formik.values.comentario} onChange={formik.handleChange} name='message' id='message'></textarea>
-                    </div>
-                    <div className="button-publicar">
-                        <button type='submit'>publicar</button>
-                    </div>
-                </form>
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <textarea className="post-area" placeholder="Deixe aqui seu comentário" value={formik.values.content} onChange={formik.handleChange} name='content' id='content'></textarea>
+                </div>
+                <div className="button-publicar">
+                    <button type='submit'>publicar</button>
+                </div>
+            </form>
             </div>
+
         </main>
     )
 }
