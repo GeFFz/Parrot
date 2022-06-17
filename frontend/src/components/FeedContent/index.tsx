@@ -1,9 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import userImg2 from '../../assets/images/user2.png'
+import { Post } from '../../types';
 import './styles.css'
 
+interface PostFeedProps {
+    posts: Post[];
+  }
+
 const FeedContent: React.FC = () => {
+
+
+    //retorna dados - fetch da api
+    //criar uma funcao
+    // 
+
+
+
+
     return (
         <main className="post-container">
             <div className="user-img-feed">

@@ -1,26 +1,9 @@
 
-import baseAPI from "./api_parrot"
+import { SignIn, User } from "../../types";
+import baseAPI from "./baseAPI"
 
 
-export interface SignIn {
-    email: string,
-    password: string
-}
 
-export interface User extends SignIn {
-    name: string,
-    email: string,
-    password: string,
-    confirmPassword: string,
-    apartment: number,
-    permission?: Permission
-}
-
-export enum Permission {
-    "Nothing",
-    "User",
-    "Admin"
-}
 
 
 export const cadastroUsuario = async (user: Omit<User, "id">) => {

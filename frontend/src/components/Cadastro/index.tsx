@@ -3,11 +3,11 @@ import "./styles-cadastro.css"
 import { Link, useNavigate } from 'react-router-dom';
 import logo from "../../assets/images/logo.png"
 import { Alert, Button, Form } from 'react-bootstrap';
-import { cadastroUsuario, loginUsuario } from '../../services/API/auth';
+import { cadastroUsuario, loginUsuario } from '../../services/API/user';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';  //ok
 import * as Yup from 'yup';
-import baseAPI from '../../services/API/api_parrot';
+import baseAPI from '../../services/API/baseAPI';
 import { signIn } from '../../store/user';
 
 // import { Container } from './styles';
