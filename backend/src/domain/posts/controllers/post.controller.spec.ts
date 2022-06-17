@@ -84,7 +84,20 @@ describe('No controller, ao executar a função', () => {
             .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjEsImVtYWlsIjoic3VwZXJ0ZXN0MTExQGdtYWlsLmNvbSIsIm5hbWUiOiJzdXBlcnRlc3QxMTEiLCJhcGFydG1lbnQiOjEyMiwicGVybWlzc2lvbiI6MSwiaWF0IjoxNjU1NDExMDQ0fQ.QrSIJTwnRP2eWI2RAZD7k1u9EB2hfpzMmLrnKgEvaf8')
                 
             .expect(200);
+        })  
+        
+        test('erro esperado quando usuário quer alterar um post que não é seu', async () => {
+            const response = await supertest(app)
+            .put('/posts/1')
+            .send({
+                "content": "Maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            })
+            
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsImVtYWlsIjoiaGFubmFAaG90bWFpbC5jb20iLCJuYW1lIjoic3VwZXJ0ZXN0IiwiYXBhcnRtZW50IjoxMjQsInBlcm1pc3Npb24iOjEsImlhdCI6MTY1NTQyNDI3NH0.kSZ7-bWqyOVvt6ejMjWqFGqiHKpqBth6XBatvt3zCRA')
+                
+            .expect(400);
         })      
+        
     })
     describe('destroy', () => {
     
