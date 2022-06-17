@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import userImg from '../../assets/images/user1.png'
 import './styles.css'
 
-const PerfilUser: React.FC = () => {
+const PerfilUser: React.FC = (props) => {
     return (
         <main className="perfil-container">
             <div className="user-img">

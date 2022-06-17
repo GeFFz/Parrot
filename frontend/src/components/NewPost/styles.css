@@ -14,13 +14,15 @@ main div.user-img {
     padding: 1rem 1rem;
 }
 
-main div.post div{
+main div.post form div{
     display: flex;
     flex-direction: column;
-    width: 542px;
+    width: 35rem;
 }
 
-main div.post div textarea {
+
+main div.post form div textarea {
+    width: 35rem;
     box-sizing: border-box;
     border: 1px solid #8BC34A;
     border-radius: 10px;
@@ -29,7 +31,7 @@ main div.post div textarea {
 }
 main div.post div.button-publicar{
     display: flex;
-    padding-top: .5rem;
+    padding-top: 1.5vh;
     align-items: flex-end;
 }
 
@@ -39,8 +41,12 @@ main div.post div.button-publicar button{
     background: #6033AA;
     border-radius: 30px;
     border: none;
-    width: 164px;
-    height: 28px;
+    width: 7rem;
+    height: 2rem;
     font-family: 'Questrial';
     font-size: 16px;
+}
+
+div.post-content p{
+    padding-bottom: 1rem;
 }

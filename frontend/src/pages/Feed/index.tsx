@@ -1,6 +1,9 @@
 import React from 'react';
 import Container from '../../components/Container'
 import FeedContent from '../../components/FeedContent';
+import FeedContent2 from '../../components/FeedContent/FeedContent2';
+import FeedContent3 from '../../components/FeedContent/FeedContent3';
+import FeedContent4 from '../../components/FeedContent/FeedContent4';
 import Header from '../../components/Header'
 import NewPost from '../../components/NewPost'
 
@@ -10,6 +13,9 @@ const Feed: React.FC = () => {
             <Header />
             <NewPost />
             <FeedContent />
+            <FeedContent2 />
+            <FeedContent3 />
+            <FeedContent4 />
         </Container>
     )
 }

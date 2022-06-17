@@ -42,8 +42,12 @@ const NewPost: React.FC = () => {
             </div>
             <div className="post">
                 <form onSubmit={formik.handleChange}>
-                    <textarea className="post-area" placeholder="Deixe aqui seu comentário" value={formik.values.comentario} onChange={formik.handleChange} name='message' id='message'></textarea>
-                    <button type='submit'>publicar</button>
+                    <div>
+                        <textarea className="post-area" placeholder="Deixe aqui seu comentário" value={formik.values.comentario} onChange={formik.handleChange} name='message' id='message'></textarea>
+                    </div>
+                    <div className="button-publicar">
+                        <button type='submit'>publicar</button>
+                    </div>
                 </form>
             </div>
         </main>
